@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 4300,
+      "qte": 600,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Printer",
+      "price": 300,
+      "qte": 100,
+      "selected": false,
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "Phone",
+      "price": 50000,
+      "qte": 2,
+      "selected": true,
+      "available": false
+    },
+    {
+      "name": "Smartphobne",
+      "price": 15300,
+      "qte": 5,
+      "selected": true,
+      "available": true,
+      "id": 4
+    }
+  ]
+}

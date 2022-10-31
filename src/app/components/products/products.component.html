@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-sm bg-light navbar-light container">
+  <ul class="navbar navbar-nav ">
+    <li>
+      <button (click)="onGetAllProducts()" class="btn btn-outline-info">All</button>
+    </li>
+    <li>
+      <button (click)="onGetSelectedProducts()" class="btn btn-outline-info mx-2">Selected</button>
+    </li>
+    <li>
+      <button (click)="onGetAvailableProducts()" class="btn btn-outline-info ">Available</button>
+    </li>
+  </ul>
+</nav>
+
+<div class="container" *ngIf="products$">
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Qte</th>
+      <th>Selected</th>
+      <th>Available</th>
+    </tr>
+    <tr *ngFor="let p of products$|async">
+      <td>{{p.id}}</td>
+      <td>{{p.name}}</td>
+      <td>{{p.price}}</td>
+      <td>{{p.qte}}</td>
+      <td>{{p.selected}}</td>
+      <td>{{p.available}}</td>
+    </tr>
+  </table>
+</div>
