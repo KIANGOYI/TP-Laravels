@@ -11,24 +11,37 @@
     </li>
   </ul>
 </nav>
+<ng-container *ngIf="products$ | async as result " [ngSwitch]="result.dataState">
+  <ng-template *ngSwitchCase="result.dataState">
+    Loading...
+  </ng-template>
+  <ng-template *ngSwitchCase="result.dataState">
+    <div class="alert-danger">
+      {{result.errorMessage}}
+    </div>
+  </ng-template>
+  <ng-template *ngSwitchCase="result.dataState">
+    <table class="table">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Qte</th>
+        <th>Selected</th>
+        <th>Available</th>
+      </tr>
+      <tr *ngFor="let p of result.data">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.price}}</td>
+        <td>{{p.qte}}</td>
+        <td>{{p.selected}}</td>
+        <td>{{p.available}}</td>
+      </tr>
+    </table>
+  </ng-template>
+</ng-container>
 
 <div class="container" *ngIf="products$">
-  <table class="table">
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Price</th>
-      <th>Qte</th>
-      <th>Selected</th>
-      <th>Available</th>
-    </tr>
-    <tr *ngFor="let p of products$|async">
-      <td>{{p.id}}</td>
-      <td>{{p.name}}</td>
-      <td>{{p.price}}</td>
-      <td>{{p.qte}}</td>
-      <td>{{p.selected}}</td>
-      <td>{{p.available}}</td>
-    </tr>
-  </table>
+
 </div>
